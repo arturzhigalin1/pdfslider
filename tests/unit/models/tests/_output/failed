@@ -1,0 +1,4 @@
+UserTest.php:testFindUserById
+UserTest.php:testFindUserByAccessToken
+UserTest.php:testFindUserByUsername
+UserTest.php:testValidateUser

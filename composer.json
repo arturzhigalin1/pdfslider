@@ -27,7 +27,8 @@
         "codeception/base": "^2.2.3",
         "codeception/verify": "~0.3.1",
         "codeception/specify": "~0.4.3",
-        "squizlabs/php_codesniffer": "3.*"   
+        "squizlabs/php_codesniffer": "3.*",
+        "guzzlehttp/guzzle": ">=4.1.4 <7.0"
     },
     "config": {
         "process-timeout": 1800

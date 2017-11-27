@@ -41,10 +41,13 @@ class Slider
         );
         $zip->addEmptyDir('images');
         $zip->addEmptyDir('assets');
-        $html=  file_get_contents(
+        $html='';
+        if (file_exists($this->controller->getUploadPath()."template.html")) {    
+            $html=  file_get_contents(
                 $this->controller->getUploadPath().
                 "template.html"
-        );
+            );
+        }    
         $imagesHtml='';
         foreach ($this->images as $img) {
             $imgName=explode("/", $img);

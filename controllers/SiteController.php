@@ -115,16 +115,22 @@ class SiteController extends Controller
     
     public function actionGetimages()
     {
+        if($_SERVER['SCRIPT_FILENAME']=='index-test.php'){
+            $_SERVER['SCRIPT_NAME']='/wowworks/web/index.php';
+            $_SERVER['SCRIPT_FILENAME']='C:/xampp/htdocs/wowworks/web/index.php';
+        }
+        $this->layout=false;
         $slider=new \app\models\Slider($this);
         $slider->setId(Yii::$app->getRequest()->getQueryParam('id'));
         $images=array();
         try
         {
             $images=$slider->getImages();
+            $data=json_encode(array('images'=>$images, 'status'=>1));
         } catch (\Exception $e){
-            print json_encode(array('status'=>2));exit;
+            $data= json_encode(array('status'=>2));
         }
-        print json_encode(array('images'=>$images, 'status'=>1));exit;
+        return $this->render('getimages',['data'=>$data]);
     }
 
     public function getUploadPath()
